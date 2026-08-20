@@ -1,0 +1,10 @@
+.env
+node_modules/
+frontend/dist/
+frontend/.tsbuild/
+backend/static/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.bak-*

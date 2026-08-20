@@ -1,0 +1,22 @@
+services:
+  vaporscreenshot:
+    build: .
+    container_name: vaporscreenshot
+    ports:
+      - "8010:8010"
+    volumes:
+      # Read-write: this is where new screenshots + the updated
+      # screenshots.vdf actually get written.
+      - ${STEAM_DIR}/userdata:/steam/userdata
+      # Read-only: only used to list installed games and account names.
+      - ${STEAM_DIR}/steamapps:/steam/steamapps:ro
+      - ${STEAM_DIR}/config:/steam/config:ro
+    environment:
+      STEAM_USERDATA_DIR: /steam/userdata
+      STEAM_STEAMAPPS_DIR: /steam/steamapps
+      STEAM_CONFIG_DIR: /steam/config
+    # Matches the container process to your host user, so files it
+    # writes are owned by you rather than a random container UID.
+    # Mainly relevant on Linux - harmless elsewhere. See README.
+    user: "${PUID:-1000}:${PGID:-1000}"
+    restart: unless-stopped

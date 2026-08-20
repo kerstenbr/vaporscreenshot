@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(ellipse at 50% -10%, #3a1a63 0%, #150821 55%, #0c0414 100%);
+  min-height: 100vh;
+}
+
+.vs-grid-floor {
+  background-image: linear-gradient(rgba(46, 230, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 230, 255, 0.18) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.vs-chrome-text {
+  background: linear-gradient(180deg, #ffffff 0%, #ffd7f5 25%, #ff3ec9 55%, #7b42ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vs-panel {
+  background: rgba(21, 8, 33, 0.72);
+  border: 1px solid rgba(123, 66, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.vs-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.vs-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.vs-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 62, 201, 0.4);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
