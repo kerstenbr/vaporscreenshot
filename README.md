@@ -80,23 +80,6 @@ Note: You have to manually delete the backups later.
 
 `steamapps/` and `config/` are only ever mounted **read-only**.
 
-## Project layout
-
-```
-backend/app/
-  main.py            FastAPI app, serves the built frontend + /api/*
-  config.py          env-driven paths & Steam Cloud constants
-  steam_paths.py      account/game discovery from local Steam files
-  vdf_service.py      screenshots.vdf read/write, backup, atomic write
-  image_service.py    resize / convert / thumbnail pipeline
-  naming.py           Steam-style screenshot filenames
-  routers/             accounts, games, process
-frontend/src/
-  App.tsx              wizard state machine
-  components/          one component per wizard step + shared UI
-  api/client.ts         typed fetch wrapper + client-side hashing
-```
-
 ## Credits
 
 Inspired by [SteaScree](https://github.com/awthwathje/SteaScree)
